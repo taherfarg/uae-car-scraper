@@ -9,7 +9,7 @@ class DubizzleSpider(Spider):
     concurrent_requests = 1
     
     custom_settings = {
-        "page_limit": 2000
+        "page_limit": 20
     }
 
     def configure_sessions(self, manager):

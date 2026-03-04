@@ -16,18 +16,30 @@ BRANDS = {
     'rolls-royce': 'Rolls-Royce', 'rolls royce': 'Rolls-Royce', 'bentley': 'Bentley',
     'ferrari': 'Ferrari', 'lamborghini': 'Lamborghini', 'maserati': 'Maserati',
     'aston-martin': 'Aston Martin', 'aston martin': 'Aston Martin',
+    'mclaren': 'McLaren', 'bugatti': 'Bugatti', 'koenigsegg': 'Koenigsegg',
     'ford': 'Ford', 'chevrolet': 'Chevrolet', 'cadillac': 'Cadillac',
     'gmc': 'GMC', 'jeep': 'Jeep', 'dodge': 'Dodge', 'chrysler': 'Chrysler',
     'lincoln': 'Lincoln', 'ram': 'RAM',
     'volvo': 'Volvo', 'peugeot': 'Peugeot', 'renault': 'Renault',
     'fiat': 'Fiat', 'alfa-romeo': 'Alfa Romeo', 'mini': 'Mini',
     'mazda': 'Mazda', 'subaru': 'Subaru', 'mitsubishi': 'Mitsubishi',
-    'suzuki': 'Suzuki', 'isuzu': 'Isuzu',
+    'suzuki': 'Suzuki', 'isuzu': 'Isuzu', 'daihatsu': 'Daihatsu',
     'byd': 'BYD', 'chery': 'Chery', 'gac': 'GAC', 'geely': 'Geely',
     'haval': 'Haval', 'mg': 'MG', 'changan': 'Changan', 'rox': 'ROX',
     'yangwang': 'Yangwang', 'brabus': 'Brabus', 'jetour': 'Jetour',
     'tank': 'Tank', 'gwm': 'GWM', 'ora': 'ORA', 'exeed': 'EXEED',
+    'tesla': 'Tesla', 'rivian': 'Rivian', 'lucid': 'Lucid',
+    'polestar': 'Polestar', 'nio': 'NIO',
 }
+
+# Luxury tier thresholds (AED)
+LUXURY_TIERS = [
+    (0,      50_000,  'Budget'),
+    (50_000, 100_000, 'Mid-Range'),
+    (100_000, 200_000, 'Premium'),
+    (200_000, 500_000, 'Luxury'),
+    (500_000, float('inf'), 'Ultra Luxury'),
+]
 
 # Model → body type mapping (common UAE market models)
 BODY_TYPES = {
@@ -36,6 +48,7 @@ BODY_TYPES = {
     'highlander': 'SUV', 'sequoia': 'SUV', '4runner': 'SUV', 'frontlander': 'SUV',
     'patrol': 'SUV', 'pathfinder': 'SUV', 'x-trail': 'SUV', 'xtrail': 'SUV',
     'kicks': 'SUV', 'x5': 'SUV', 'x3': 'SUV', 'x4': 'SUV', 'x6': 'SUV', 'x7': 'SUV',
+    'ix3': 'SUV', 'ix5': 'SUV', 'ixm': 'SUV',
     'q5': 'SUV', 'q7': 'SUV', 'q8': 'SUV', 'q3': 'SUV',
     'gle': 'SUV', 'glc': 'SUV', 'gls': 'SUV', 'gla': 'SUV', 'glb': 'SUV',
     'g-class': 'SUV', 'g class': 'SUV', 'g63': 'SUV', 'g500': 'SUV',
@@ -56,7 +69,8 @@ BODY_TYPES = {
     'tiggo': 'SUV', 'emzoom': 'SUV', 'u8': 'SUV',
     'f-pace': 'SUV', 'e-pace': 'SUV',
     'xc90': 'SUV', 'xc60': 'SUV', 'xc40': 'SUV',
-    'ecosport': 'SUV', 'countryman': 'SUV',
+    'ecosport': 'SUV', 'countryman': 'SUV', 'dx9': 'SUV',
+    'model x': 'SUV', 'model y': 'SUV',
     # Sedans
     'camry': 'Sedan', 'corolla': 'Sedan', 'avalon': 'Sedan', 'yaris': 'Sedan',
     'altima': 'Sedan', 'maxima': 'Sedan', 'sentra': 'Sedan', 'sunny': 'Sedan',
@@ -69,20 +83,25 @@ BODY_TYPES = {
     'rs7': 'Sedan', 'rs6': 'Sedan', 'rs3': 'Sedan',
     's-class': 'Sedan', 'e-class': 'Sedan', 'c-class': 'Sedan', 'a-class': 'Sedan',
     'eqs': 'Sedan', 'cle': 'Sedan',
-    'ghost': 'Sedan', 'phantom': 'Sedan', 'wraith': 'Sedan',
-    'continental': 'Sedan', 'flying spur': 'Sedan',
+    'ghost': 'Sedan', 'phantom': 'Sedan', 'flying spur': 'Sedan',
+    'continental': 'Coupe',
     'panamera': 'Sedan', 'taycan': 'Sedan',
-    'charger': 'Sedan', 'fusion': 'Sedan', 'mustang gt': 'Sedan',
+    'charger': 'Sedan', 'fusion': 'Sedan',
     'passat': 'Sedan', 'jetta': 'Sedan',
     'mazda 6': 'Sedan', 'mazda 3': 'Sedan',
     'attrage': 'Sedan', 'lancer': 'Sedan',
     'mg5': 'Sedan', 'arrizo': 'Sedan',
     'han': 'Sedan', 'seal': 'Sedan',
+    'model 3': 'Sedan', 'model s': 'Sedan',
     '2008': 'SUV', '5008': 'SUV', '3008': 'SUV',
     # Coupes/Sports
-    '911': 'Coupe', 'carrera': 'Coupe', 'gt3': 'Coupe',
-    'm4': 'Coupe', 'm3': 'Coupe', 'm2': 'Coupe', 'm8': 'Coupe',
-    'gle-coupe': 'Coupe', 'gle coupe': 'Coupe',
+    '911': 'Coupe', 'carrera': 'Coupe', 'gt3': 'Coupe', 'boxster': 'Convertible',
+    'm4': 'Coupe', 'm3': 'Sedan', 'm2': 'Coupe', 'm8': 'Coupe',
+    'gle-coupe': 'Coupe', 'gle coupe': 'Coupe', 'cle coupe': 'Coupe',
+    'mustang': 'Coupe', 'challenger': 'Coupe',
+    'wraith': 'Coupe', 'dawn': 'Convertible',
+    'huracan': 'Coupe', 'aventador': 'Coupe', 'evo': 'Coupe',
+    '488': 'Coupe', 'f8': 'Coupe', 'sf90': 'Coupe', 'roma': 'Coupe',
     '500': 'Hatchback',
     # Pickups
     'hilux': 'Pickup', 'tundra': 'Pickup', 'tacoma': 'Pickup',
@@ -90,10 +109,27 @@ BODY_TYPES = {
     'ranger': 'Pickup', 'l200': 'Pickup', 'navara': 'Pickup', 'dmax': 'Pickup',
     'silverado': 'Pickup', 'sierra': 'Pickup', 'colorado': 'Pickup',
     'bongo': 'Pickup', 'k2700': 'Pickup', 'k4000': 'Pickup',
+    'cybertruck': 'Pickup',
     # Vans/Buses
     'hiace': 'Van', 'coaster': 'Bus', 'rosa': 'Bus', 'vito': 'Van', 'savana': 'Van',
+    'carnival': 'Van', 'starex': 'Van', 'urvan': 'Van',
 }
 
+# Common color keywords
+COLOR_KEYWORDS = {
+    'white': 'White', 'pearl white': 'White', 'solid white': 'White',
+    'black': 'Black', 'carbon black': 'Black', 'obsidian black': 'Black',
+    'silver': 'Silver', 'metallic silver': 'Silver', 'nardo grey': 'Grey',
+    'grey': 'Grey', 'gray': 'Grey', 'graphite': 'Grey',
+    'red': 'Red', 'burgundy': 'Red', 'maroon': 'Red', 'crimson': 'Red',
+    'blue': 'Blue', 'navy': 'Blue', 'cobalt': 'Blue', 'midnight blue': 'Blue',
+    'green': 'Green', 'racing green': 'Green', 'olive': 'Green',
+    'gold': 'Gold', 'golden': 'Gold', 'champagne': 'Gold',
+    'beige': 'Beige', 'cream': 'Beige', 'ivory': 'Beige',
+    'orange': 'Orange', 'amber': 'Orange',
+    'brown': 'Brown', 'bronze': 'Brown', 'copper': 'Brown',
+    'yellow': 'Yellow',
+}
 
 # ============================================================
 # Cleaning Utilities
@@ -104,7 +140,11 @@ def clean_price(price_str):
     if not isinstance(price_str, str):
         return None
     digits = re.sub(r'[^\d]', '', price_str)
-    return int(digits) if digits else None
+    val = int(digits) if digits else None
+    # Sanity check: filter out nonsense prices
+    if val is not None and (val < 1000 or val > 50_000_000):
+        return None
+    return val
 
 
 def clean_mileage(km_str):
@@ -112,11 +152,21 @@ def clean_mileage(km_str):
     if not isinstance(km_str, str):
         return None
     digits = re.sub(r'[^\d]', '', km_str)
-    return int(digits) if digits else None
+    val = int(digits) if digits else None
+    if val is not None and val > 2_000_000:
+        return None
+    return val
 
 
 def clean_year(year_str):
     """Extract 4-digit year from string like '2020' or 'New Toyota Tundra 2025'."""
+    if isinstance(year_str, float):
+        if year_str != year_str:  # NaN check
+            return None
+        y = int(year_str)
+        return y if 1980 <= y <= 2030 else None
+    if isinstance(year_str, int):
+        return year_str if 1980 <= year_str <= 2030 else None
     if not isinstance(year_str, str):
         return None
     match = re.search(r'(19|20)\d{2}', year_str)
@@ -180,15 +230,17 @@ def detect_fuel_type(title, url):
     """Detect fuel type from title and URL keywords."""
     combined = f"{title or ''} {url or ''}".lower()
     
-    if any(kw in combined for kw in ['electric', ' ev ', ' ev-', '-ev ', 'bev', 'battery electric']):
+    if any(kw in combined for kw in ['electric', ' ev ', ' ev-', '-ev ', 'bev', 'battery electric', 'zero emission']):
         return 'Electric'
-    if any(kw in combined for kw in ['hybrid', 'hev', 'phev', 'dm-i', 'dm i', 'i-force max']):
+    if any(kw in combined for kw in ['plug-in', 'plugin', 'phev']):
+        return 'Plug-in Hybrid'
+    if any(kw in combined for kw in ['hybrid', 'hev', 'dm-i', 'dm i', 'i-force max', 'self-charging']):
         return 'Hybrid'
     if any(kw in combined for kw in ['diesel', 'deisel', 'cdi', 'tdi', 'crdi', 'd4d']):
         return 'Diesel'
-    if any(kw in combined for kw in ['petrol', 'gasoline', 'benzin', 'tfsi', 'turbo', 
+    if any(kw in combined for kw in ['petrol', 'gasoline', 'benzin', 'tfsi', 'turbo',
                                       'v8', 'v6', 'v4', 'v12', 'gdi', 'tsi',
-                                      'ecoboost', 'skyactiv']):
+                                      'ecoboost', 'skyactiv', 'supercharged']):
         return 'Petrol'
     return None
 
@@ -202,7 +254,9 @@ def detect_body_type(model, title, url):
             return body
     
     # Generic fallbacks
-    if any(kw in combined for kw in ['coupe', 'coupé', 'convertible', 'cabriolet']):
+    if any(kw in combined for kw in ['convertible', 'cabriolet', 'spider', 'roadster']):
+        return 'Convertible'
+    if any(kw in combined for kw in ['coupe', 'coupé']):
         return 'Coupe'
     if any(kw in combined for kw in ['sedan', 'saloon']):
         return 'Sedan'
@@ -225,7 +279,7 @@ def detect_specs_origin(title):
     title_upper = title.upper()
     if 'GCC' in title_upper:
         return 'GCC'
-    if any(kw in title_upper for kw in ['USA', 'US SPEC', 'AMERICAN', 'USA SPEC', 'JAPAN', 'JAPANESE', 'KOREAN', 'CHINA', 'CHINESE', 'EUROPEAN']):
+    if any(kw in title_upper for kw in ['USA', 'US SPEC', 'AMERICAN', 'USA SPEC', 'JAPAN', 'JAPANESE', 'KOREAN', 'CHINA', 'CHINESE', 'EUROPEAN', 'EURO SPEC']):
         return 'Import'
     return None
 
@@ -233,15 +287,49 @@ def detect_specs_origin(title):
 def detect_condition(title, mileage_km, year_raw):
     """Detect if the car is new or used."""
     combined = f"{title or ''} {year_raw or ''}".upper()
-    if any(kw in combined for kw in ['BRAND NEW', 'NEW ', '0KM', '0 KM']):
+    if any(kw in combined for kw in ['BRAND NEW', 'NEW CAR', '0KM', '0 KM', 'ZERO KM']):
         return 'New'
-    if mileage_km is not None and mileage_km <= 50:
+    if mileage_km is not None and mileage_km <= 100:
         return 'New'
     if mileage_km is not None and mileage_km > 500:
         return 'Used'
     if 'USED' in combined:
         return 'Used'
     return None
+
+
+def detect_transmission(title):
+    """Detect transmission type from title."""
+    if not isinstance(title, str):
+        return None
+    t = title.upper()
+    if any(kw in t for kw in ['MANUAL', 'MT ', ' MT', '6-SPEED MANUAL', '5-SPEED MANUAL']):
+        return 'Manual'
+    if any(kw in t for kw in ['AUTOMATIC', 'AUTO ', 'AT ', ' AT', 'CVT', 'TIPTRONIC', 'PDK', 'DCT', 'DSG']):
+        return 'Automatic'
+    return None
+
+
+def detect_color(title):
+    """Detect vehicle color from listing title."""
+    if not isinstance(title, str):
+        return None
+    title_lower = title.lower()
+    # Try multi-word colors first (longer keys first)
+    for kw, color in sorted(COLOR_KEYWORDS.items(), key=lambda x: len(x[0]), reverse=True):
+        if kw in title_lower:
+            return color
+    return None
+
+
+def classify_tier(price_aed):
+    """Classify vehicle into market tier based on price."""
+    if price_aed is None or pd.isna(price_aed):
+        return None
+    for lo, hi, tier in LUXURY_TIERS:
+        if lo <= price_aed < hi:
+            return tier
+    return 'Ultra Luxury'
 
 
 def data_quality_score(row):
@@ -332,8 +420,18 @@ def enrich_dataframe(df):
     df['specs_origin'] = df['title'].apply(detect_specs_origin)
     df['condition'] = df.apply(lambda r: detect_condition(r.get('title'), r.get('mileage_km'), r.get('year')), axis=1)
     
-    # ---- Step 5: Use cleaned year ----
+    # ---- Step 5: New enrichments ----
+    print("  → Detecting transmission, color, market tier...")
+    df['transmission'] = df['title'].apply(detect_transmission)
+    df['color'] = df['title'].apply(detect_color)
     df['year'] = df['year_clean']
+    df['market_tier'] = df['price_aed'].apply(classify_tier)
+
+    # Improve condition using year for listings with no mileage data
+    current_year = 2026
+    no_cond = df['condition'].isna()
+    new_enough = df['year'] >= (current_year - 1)
+    df.loc[no_cond & new_enough & df['mileage_km'].isna(), 'condition'] = 'New'
     
     # ---- Step 6: Deduplication ----
     before = len(df)
@@ -376,8 +474,8 @@ def main():
     # Reorder columns
     col_order = [
         'source', 'brand', 'model', 'title', 'year', 'price_aed', 'mileage_km',
-        'condition', 'fuel_type', 'body_type', 'specs_origin', 'location',
-        'data_quality', 'link'
+        'condition', 'fuel_type', 'body_type', 'transmission', 'color',
+        'specs_origin', 'market_tier', 'location', 'data_quality', 'link'
     ]
     col_order = [c for c in col_order if c in enriched.columns]
     enriched = enriched[col_order]
@@ -406,7 +504,7 @@ def main():
             print(f"    {brand:20s}  {count:3d} listings  |  Avg: {price_str}")
     
     print(f"\n📋 Sample Data:")
-    print(enriched[['brand', 'model', 'year', 'price_aed', 'condition', 'body_type']].head(10).to_string(index=False))
+    print(enriched[['brand', 'model', 'year', 'price_aed', 'condition', 'body_type', 'market_tier']].head(10).to_string(index=False))
 
 
 if __name__ == "__main__":
