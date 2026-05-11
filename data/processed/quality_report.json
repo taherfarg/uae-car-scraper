@@ -1,0 +1,62 @@
+{
+  "total_listings": 1295,
+  "source_breakdown": {
+    "dubizzle": 652,
+    "dubicars": 643
+  },
+  "brand_coverage": {
+    "identified": 1162,
+    "unknown": 133,
+    "pct_identified": 89.7
+  },
+  "model_coverage": {
+    "identified": 1162,
+    "pct_identified": 89.7
+  },
+  "field_completeness": {
+    "price": 100.0,
+    "year": 100.0,
+    "mileage": 100.0,
+    "brand": 100.0,
+    "model": 100.0,
+    "body_type": 100.0,
+    "fuel_type": 100.0,
+    "location": 50.3,
+    "color": 50.3
+  },
+  "avg_quality_score": 85.1,
+  "price_stats": {
+    "min": 23500.0,
+    "max": 8200000.0,
+    "mean": 379883.39,
+    "median": 172000.0
+  },
+  "top_brands": {
+    "Toyota": 308,
+    "Mercedes-Benz": 122,
+    "BYD": 114,
+    "Nissan": 76,
+    "MG": 40,
+    "Kia": 39,
+    "Suzuki": 38,
+    "BMW": 31,
+    "Land Rover": 29,
+    "Mitsubishi": 28,
+    "Lexus": 28,
+    "Rolls-Royce": 28,
+    "Ferrari": 26,
+    "Porsche": 24,
+    "Jeep": 24
+  },
+  "cross_source_flags": {
+    "Normal": 1080,
+    "Above Market": 80,
+    "Below Market": 68,
+    "Overpriced \u26a0\ufe0f": 47,
+    "Potential Deal \ud83d\udd25": 20
+  },
+  "extraction_methods": {
+    "next_data": 652,
+    "dom": 643
+  }
+}
