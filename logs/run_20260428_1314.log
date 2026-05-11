@@ -1,0 +1,3 @@
+2026-04-28 13:14:31,691 [database] INFO: Loading data from data/processed/listings.csv...
+2026-04-28 13:14:31,730 [database] INFO: Database initialized: 579 listings with indexes
+2026-04-28 13:14:32,150 [api] INFO: Database ready.

@@ -1,0 +1,5 @@
+2026-05-11 11:27:25,850 [api] INFO: Database ready.
+2026-05-11 11:27:34,644 [runner] INFO: === Starting Dubizzle Scraper ===
+2026-05-11 11:27:35,711 [dubizzle_spider] INFO: Playwright browser launched
+2026-05-11 11:27:35,712 [dubizzle_spider] INFO: Scraping page 1: https://uae.dubizzle.com/motors/new-cars/?page=1
+2026-05-11 11:27:41,745 [dubizzle_spider] ERROR: Attempt 1 failed for https://uae.dubizzle.com/motors/new-cars/?page=1: Page.content: Unable to retrieve content because the page is navigating and changing the content.

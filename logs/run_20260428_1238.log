@@ -1,0 +1,137 @@
+2026-04-28 12:38:53,201 [runner] INFO: === Starting Dubizzle Scraper ===
+2026-04-28 12:38:53,201 [scrapling] WARNING: This logic is deprecated now, and have no effect; It will be removed with v0.3. Use `StealthyFetcher.configure()` instead before fetching
+2026-04-28 12:38:53,201 [dubizzle_spider] INFO: Scraping page 1: https://uae.dubizzle.com/motors/new-cars/?page=1
+2026-04-28 12:38:54,219 [scrapling] INFO: Fetched (200) <GET https://uae.dubizzle.com/motors/new-cars/?page=1> (referer: https://www.google.com/search?q=dubizzle)
+2026-04-28 12:38:54,362 [dubizzle_spider] WARNING: Page appears to be blocked by Imperva anti-bot protection
+2026-04-28 12:38:54,362 [dubizzle_spider] WARNING: No listings extracted from page 1
+2026-04-28 12:38:54,362 [dubizzle_spider] INFO: Page 1: Found 0 listings
+2026-04-28 12:38:56,623 [dubizzle_spider] INFO: Scraping page 2: https://uae.dubizzle.com/motors/new-cars/?page=2
+2026-04-28 12:38:57,575 [scrapling] INFO: Fetched (200) <GET https://uae.dubizzle.com/motors/new-cars/?page=2> (referer: https://www.google.com/search?q=dubizzle)
+2026-04-28 12:38:57,687 [dubizzle_spider] WARNING: Page appears to be blocked by Imperva anti-bot protection
+2026-04-28 12:38:57,687 [dubizzle_spider] WARNING: No listings extracted from page 2
+2026-04-28 12:38:57,687 [dubizzle_spider] INFO: Page 2: Found 0 listings
+2026-04-28 12:39:01,633 [dubizzle_spider] INFO: Scraping page 3: https://uae.dubizzle.com/motors/new-cars/?page=3
+2026-04-28 12:39:02,970 [scrapling] INFO: Fetched (200) <GET https://uae.dubizzle.com/motors/new-cars/?page=3> (referer: https://www.google.com/search?q=dubizzle)
+2026-04-28 12:39:03,083 [dubizzle_spider] WARNING: Page appears to be blocked by Imperva anti-bot protection
+2026-04-28 12:39:03,083 [dubizzle_spider] WARNING: No listings extracted from page 3
+2026-04-28 12:39:03,083 [dubizzle_spider] INFO: Page 3: Found 0 listings
+2026-04-28 12:39:03,083 [dubizzle_spider] INFO: 3 consecutive empty pages. Stopping at page 3.
+2026-04-28 12:39:03,083 [dubizzle_spider] INFO: Scraping complete. Stats: {'pages_scraped': 3, 'listings_found': 0, 'errors': 0}
+2026-04-28 12:39:03,083 [runner] INFO: Dubizzle: 0 listings saved
+2026-04-28 12:39:03,083 [runner] INFO: === Starting Dubicars Scraper ===
+2026-04-28 12:39:03,083 [scrapling] WARNING: This logic is deprecated now, and have no effect; It will be removed with v0.3. Use `StealthyFetcher.configure()` instead before fetching
+2026-04-28 12:39:03,083 [dubicars_spider] INFO: Scraping page 1: https://www.dubicars.com/uae/new?page=1
+2026-04-28 12:39:07,475 [scrapling] INFO: Fetched (200) <GET https://www.dubicars.com/uae/new?page=1> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 12:39:07,601 [dubicars_spider] INFO: Page 1: Found 30 card elements
+2026-04-28 12:39:07,605 [dubicars_spider] INFO: Page 1: 30 listings (total: 30)
+2026-04-28 12:39:09,972 [dubicars_spider] INFO: Scraping page 2: https://www.dubicars.com/uae/new?page=2
+2026-04-28 12:39:14,522 [scrapling] INFO: Fetched (200) <GET https://www.dubicars.com/uae/new?page=2> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 12:39:14,650 [dubicars_spider] INFO: Page 2: Found 30 card elements
+2026-04-28 12:39:14,654 [dubicars_spider] INFO: Page 2: 30 listings (total: 60)
+2026-04-28 12:39:19,320 [dubicars_spider] INFO: Scraping page 3: https://www.dubicars.com/uae/new?page=3
+2026-04-28 12:39:23,462 [scrapling] INFO: Fetched (200) <GET https://www.dubicars.com/uae/new?page=3> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 12:39:23,599 [dubicars_spider] INFO: Page 3: Found 30 card elements
+2026-04-28 12:39:23,604 [dubicars_spider] INFO: Page 3: 30 listings (total: 90)
+2026-04-28 12:39:26,022 [dubicars_spider] INFO: Scraping page 4: https://www.dubicars.com/uae/new?page=4
+2026-04-28 12:39:30,127 [scrapling] INFO: Fetched (200) <GET https://www.dubicars.com/uae/new?page=4> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 12:39:30,254 [dubicars_spider] INFO: Page 4: Found 30 card elements
+2026-04-28 12:39:30,258 [dubicars_spider] INFO: Page 4: 30 listings (total: 120)
+2026-04-28 12:39:33,588 [dubicars_spider] INFO: Scraping page 5: https://www.dubicars.com/uae/new?page=5
+2026-04-28 12:39:37,508 [scrapling] INFO: Fetched (200) <GET https://www.dubicars.com/uae/new?page=5> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 12:39:37,649 [dubicars_spider] INFO: Page 5: Found 30 card elements
+2026-04-28 12:39:37,654 [dubicars_spider] INFO: Page 5: 30 listings (total: 150)
+2026-04-28 12:39:40,664 [dubicars_spider] INFO: Scraping page 6: https://www.dubicars.com/uae/new?page=6
+2026-04-28 12:39:44,805 [scrapling] INFO: Fetched (200) <GET https://www.dubicars.com/uae/new?page=6> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 12:39:44,933 [dubicars_spider] INFO: Page 6: Found 30 card elements
+2026-04-28 12:39:44,937 [dubicars_spider] INFO: Page 6: 30 listings (total: 180)
+2026-04-28 12:39:47,168 [dubicars_spider] INFO: Scraping page 7: https://www.dubicars.com/uae/new?page=7
+2026-04-28 12:40:17,697 [scrapling] WARNING: Attempt 1 failed: Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://www.dubicars.com/uae/new?page=7", waiting until "load"
+. Retrying in 1s...
+2026-04-28 12:40:27,584 [scrapling] INFO: Fetched (200) <GET https://www.dubicars.com/uae/new?page=7> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 12:40:27,724 [dubicars_spider] INFO: Page 7: Found 30 card elements
+2026-04-28 12:40:27,728 [dubicars_spider] INFO: Page 7: 30 listings (total: 210)
+2026-04-28 12:40:30,055 [dubicars_spider] INFO: Scraping page 8: https://www.dubicars.com/uae/new?page=8
+2026-04-28 12:41:00,584 [scrapling] WARNING: Attempt 1 failed: Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://www.dubicars.com/uae/new?page=8", waiting until "load"
+. Retrying in 1s...
+2026-04-28 12:41:27,387 [scrapling] INFO: Fetched (200) <GET https://www.dubicars.com/uae/new?page=8> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 12:41:27,550 [dubicars_spider] INFO: Page 8: Found 30 card elements
+2026-04-28 12:41:27,554 [dubicars_spider] INFO: Page 8: 30 listings (total: 240)
+2026-04-28 12:41:29,835 [dubicars_spider] INFO: Scraping page 9: https://www.dubicars.com/uae/new?page=9
+2026-04-28 12:41:37,516 [scrapling] INFO: Fetched (200) <GET https://www.dubicars.com/uae/new?page=9> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 12:41:37,681 [dubicars_spider] INFO: Page 9: Found 30 card elements
+2026-04-28 12:41:37,685 [dubicars_spider] INFO: Page 9: 30 listings (total: 270)
+2026-04-28 12:41:41,152 [dubicars_spider] INFO: Scraping page 10: https://www.dubicars.com/uae/new?page=10
+2026-04-28 12:41:51,556 [scrapling] INFO: Fetched (200) <GET https://www.dubicars.com/uae/new?page=10> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 12:41:51,690 [dubicars_spider] INFO: Page 10: Found 30 card elements
+2026-04-28 12:41:51,694 [dubicars_spider] INFO: Page 10: 30 listings (total: 300)
+2026-04-28 12:41:55,701 [dubicars_spider] INFO: Scraping page 11: https://www.dubicars.com/uae/new?page=11
+2026-04-28 12:42:01,213 [scrapling] INFO: Fetched (200) <GET https://www.dubicars.com/uae/new?page=11> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 12:42:01,376 [dubicars_spider] INFO: Page 11: Found 30 card elements
+2026-04-28 12:42:01,380 [dubicars_spider] INFO: Page 11: 30 listings (total: 330)
+2026-04-28 12:42:04,513 [dubicars_spider] INFO: Scraping page 12: https://www.dubicars.com/uae/new?page=12
+2026-04-28 12:42:15,701 [scrapling] INFO: Fetched (200) <GET https://www.dubicars.com/uae/new?page=12> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 12:42:15,856 [dubicars_spider] INFO: Page 12: Found 30 card elements
+2026-04-28 12:42:15,860 [dubicars_spider] INFO: Page 12: 30 listings (total: 360)
+2026-04-28 12:42:19,845 [dubicars_spider] INFO: Scraping page 13: https://www.dubicars.com/uae/new?page=13
+2026-04-28 12:42:48,288 [scrapling] INFO: Fetched (200) <GET https://www.dubicars.com/uae/new?page=13> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 12:42:48,432 [dubicars_spider] INFO: Page 13: Found 30 card elements
+2026-04-28 12:42:48,436 [dubicars_spider] INFO: Page 13: 30 listings (total: 390)
+2026-04-28 12:42:50,702 [dubicars_spider] INFO: Scraping page 14: https://www.dubicars.com/uae/new?page=14
+2026-04-28 12:43:21,241 [scrapling] WARNING: Attempt 1 failed: Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://www.dubicars.com/uae/new?page=14", waiting until "load"
+. Retrying in 1s...
+2026-04-28 12:43:44,083 [scrapling] INFO: Fetched (200) <GET https://www.dubicars.com/uae/new?page=14> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 12:43:44,239 [dubicars_spider] INFO: Page 14: Found 30 card elements
+2026-04-28 12:43:44,243 [dubicars_spider] INFO: Page 14: 30 listings (total: 420)
+2026-04-28 12:43:46,648 [dubicars_spider] INFO: Scraping page 15: https://www.dubicars.com/uae/new?page=15
+2026-04-28 12:44:06,195 [scrapling] INFO: Fetched (200) <GET https://www.dubicars.com/uae/new?page=15> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 12:44:06,348 [dubicars_spider] INFO: Page 15: Found 30 card elements
+2026-04-28 12:44:06,353 [dubicars_spider] INFO: Page 15: 30 listings (total: 450)
+2026-04-28 12:44:10,404 [dubicars_spider] INFO: Scraping page 16: https://www.dubicars.com/uae/new?page=16
+2026-04-28 12:44:21,185 [scrapling] INFO: Fetched (200) <GET https://www.dubicars.com/uae/new?page=16> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 12:44:21,347 [dubicars_spider] INFO: Page 16: Found 30 card elements
+2026-04-28 12:44:21,351 [dubicars_spider] INFO: Page 16: 30 listings (total: 480)
+2026-04-28 12:44:25,846 [dubicars_spider] INFO: Scraping page 17: https://www.dubicars.com/uae/new?page=17
+2026-04-28 12:44:35,185 [scrapling] INFO: Fetched (200) <GET https://www.dubicars.com/uae/new?page=17> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 12:44:35,347 [dubicars_spider] INFO: Page 17: Found 30 card elements
+2026-04-28 12:44:35,351 [dubicars_spider] INFO: Page 17: 30 listings (total: 510)
+2026-04-28 12:44:37,582 [dubicars_spider] INFO: Scraping page 18: https://www.dubicars.com/uae/new?page=18
+2026-04-28 12:44:46,850 [scrapling] INFO: Fetched (200) <GET https://www.dubicars.com/uae/new?page=18> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 12:44:46,992 [dubicars_spider] INFO: Page 18: Found 30 card elements
+2026-04-28 12:44:46,997 [dubicars_spider] INFO: Page 18: 30 listings (total: 540)
+2026-04-28 12:44:50,831 [dubicars_spider] INFO: Scraping page 19: https://www.dubicars.com/uae/new?page=19
+2026-04-28 12:45:13,967 [scrapling] INFO: Fetched (200) <GET https://www.dubicars.com/uae/new?page=19> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 12:45:14,140 [dubicars_spider] INFO: Page 19: Found 30 card elements
+2026-04-28 12:45:14,145 [dubicars_spider] INFO: Page 19: 30 listings (total: 570)
+2026-04-28 12:45:16,956 [dubicars_spider] INFO: Scraping page 20: https://www.dubicars.com/uae/new?page=20
+2026-04-28 12:45:41,554 [scrapling] INFO: Fetched (200) <GET https://www.dubicars.com/uae/new?page=20> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 12:45:41,717 [dubicars_spider] INFO: Page 20: Found 30 card elements
+2026-04-28 12:45:41,722 [dubicars_spider] INFO: Page 20: 30 listings (total: 600)
+2026-04-28 12:45:44,279 [dubicars_spider] INFO: Scraping page 21: https://www.dubicars.com/uae/new?page=21
+2026-04-28 12:46:13,289 [scrapling] INFO: Fetched (200) <GET https://www.dubicars.com/uae/new?page=21> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 12:46:13,448 [dubicars_spider] INFO: Page 21: Found 30 card elements
+2026-04-28 12:46:13,452 [dubicars_spider] INFO: Page 21: 30 listings (total: 630)
+2026-04-28 12:46:16,097 [dubicars_spider] INFO: Scraping page 22: https://www.dubicars.com/uae/new?page=22
+2026-04-28 12:46:33,067 [scrapling] INFO: Fetched (200) <GET https://www.dubicars.com/uae/new?page=22> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 12:46:33,229 [dubicars_spider] INFO: Page 22: Found 30 card elements
+2026-04-28 12:46:33,232 [dubicars_spider] INFO: Page 22: 30 listings (total: 660)
+2026-04-28 12:46:38,082 [dubicars_spider] INFO: Scraping page 23: https://www.dubicars.com/uae/new?page=23
+2026-04-28 12:46:54,051 [scrapling] INFO: Fetched (200) <GET https://www.dubicars.com/uae/new?page=23> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 12:46:54,218 [dubicars_spider] INFO: Page 23: Found 30 card elements
+2026-04-28 12:46:54,222 [dubicars_spider] INFO: Page 23: 30 listings (total: 690)
+2026-04-28 12:46:56,234 [dubicars_spider] INFO: Scraping page 24: https://www.dubicars.com/uae/new?page=24
+2026-04-28 12:47:09,211 [scrapling] INFO: Fetched (200) <GET https://www.dubicars.com/uae/new?page=24> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 12:47:09,374 [dubicars_spider] INFO: Page 24: Found 30 card elements
+2026-04-28 12:47:09,378 [dubicars_spider] INFO: Page 24: 30 listings (total: 720)
+2026-04-28 12:47:13,914 [dubicars_spider] INFO: Scraping page 25: https://www.dubicars.com/uae/new?page=25
+2026-04-28 12:47:24,363 [scrapling] INFO: Fetched (200) <GET https://www.dubicars.com/uae/new?page=25> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 12:47:24,528 [dubicars_spider] INFO: Page 25: Found 30 card elements
+2026-04-28 12:47:24,532 [dubicars_spider] INFO: Page 25: 30 listings (total: 750)
+2026-04-28 12:47:27,331 [dubicars_spider] INFO: Dubicars scraping complete. Stats: {'pages_scraped': 25, 'listings_found': 750, 'details_scraped': 0, 'errors': 0}
+2026-04-28 12:47:27,360 [runner] INFO: Dubicars: 750 listings saved
+2026-04-28 12:47:27,360 [runner] INFO: === Scraping Complete: 750 total listings ===

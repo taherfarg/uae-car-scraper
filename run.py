@@ -1,110 +1,243 @@
-"""
-UAE Car Market Scraper — Unified CLI Runner
-Usage:
-    python run.py process    — Process & merge raw JSON data into enriched CSV
-    python run.py analyze    — Generate interactive HTML dashboard from CSV
-    python run.py all        — Run process + analyze in sequence
-    python run.py export     — Export to Excel format
-"""
-
+import asyncio
 import argparse
-import sys
+import json
+import logging
 import os
+import sys
+from datetime import datetime
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(name)s] %(levelname)s: %(message)s",
+    handlers=[
+        logging.StreamHandler(sys.stdout),
+        logging.FileHandler(f"logs/run_{datetime.now().strftime('%Y%m%d_%H%M')}.log", encoding="utf-8"),
+    ]
+)
+logger = logging.getLogger("runner")
 
 
-def cmd_process():
-    """Run the data processing pipeline."""
-    from process_and_merge import main as process_main
-    process_main()
+def ensure_dirs():
+    """Create required directories."""
+    for d in ["data/raw", "data/processed", "output", "logs"]:
+        os.makedirs(d, exist_ok=True)
 
 
-def cmd_analyze():
-    """Generate the analytics dashboard."""
-    from analyze_and_dashboard import generate_dashboard
-    generate_dashboard()
+async def cmd_scrape(args):
+    """Run scrapers."""
+    ensure_dirs()
+    results = {"dubizzle": [], "dubicars": []}
+
+    if args.source in ("all", "dubizzle"):
+        from dubizzle_spider import EnhancedDubizzleSpider
+        logger.info("=== Starting Dubizzle Scraper ===")
+        spider = EnhancedDubizzleSpider(
+            max_pages=args.pages,
+            min_delay=args.min_delay,
+            max_delay=args.max_delay,
+        )
+        results["dubizzle"] = await spider.scrape_all()
+        # Save raw data
+        with open("data/raw/dubizzle_raw.json", "w", encoding="utf-8") as f:
+            json.dump(results["dubizzle"], f, indent=2, default=str)
+        logger.info(f"Dubizzle: {len(results['dubizzle'])} listings saved")
+
+    if args.source in ("all", "dubicars"):
+        from dubicars_spider import EnhancedDubicarsSpider
+        logger.info("=== Starting Dubicars Scraper ===")
+        spider = EnhancedDubicarsSpider(
+            max_pages=args.pages,
+            scrape_details=args.details,
+            min_delay=args.min_delay,
+            max_delay=args.max_delay,
+        )
+        results["dubicars"] = await spider.scrape_all()
+        with open("data/raw/dubicars_raw.json", "w", encoding="utf-8") as f:
+            json.dump(results["dubicars"], f, indent=2, default=str)
+        logger.info(f"Dubicars: {len(results['dubicars'])} listings saved")
+
+    total = len(results["dubizzle"]) + len(results["dubicars"])
+    logger.info(f"=== Scraping Complete: {total} total listings ===")
+    return results
 
 
-def cmd_export(fmt="xlsx"):
-    """Export data to additional formats."""
+def cmd_process(args):
+    """Process and merge raw data."""
+    from process_and_merge import EnhancedProcessor
+
+    ensure_dirs()
+
+    # Load raw data
+    dubizzle_data = []
+    dubicars_data = []
+
+    try:
+        with open("data/raw/dubizzle_raw.json") as f:
+            dubizzle_data = json.load(f)
+    except FileNotFoundError:
+        logger.warning("No Dubizzle raw data found")
+
+    try:
+        with open("data/raw/dubicars_raw.json") as f:
+            dubicars_data = json.load(f)
+    except FileNotFoundError:
+        logger.warning("No Dubicars raw data found")
+
+    if not dubizzle_data and not dubicars_data:
+        logger.error("No raw data found. Run 'scrape' first.")
+        return None
+
+    processor = EnhancedProcessor(dubizzle_data, dubicars_data)
+    df = processor.run_pipeline()
+
+    # Export
+    processor.export_to_csv("data/processed/listings.csv")
+    processor.export_to_json("data/processed/listings.json")
+
+    if args.excel:
+        processor.export_to_excel("output/uae_car_market.xlsx")
+
+    # Save quality report
+    with open("data/processed/quality_report.json", "w") as f:
+        json.dump(processor.quality_report, f, indent=2, default=str)
+
+    return df
+
+
+def cmd_analyze(args):
+    """Run analysis and generate dashboard."""
+    from analyze_and_dashboard import EnhancedAnalyzer
     import pandas as pd
-    
-    csv_path = "uae_cars_market_data.csv"
-    if not os.path.exists(csv_path):
-        print(f"❌ {csv_path} not found. Run 'python run.py process' first.")
+
+    try:
+        df = pd.read_csv("data/processed/listings.csv")
+    except FileNotFoundError:
+        logger.error("No processed data found. Run 'process' first.")
         return
-    
-    df = pd.read_csv(csv_path)
-    
-    if fmt == "xlsx":
+
+    analyzer = EnhancedAnalyzer(df)
+    output = args.output or "output/dashboard.html"
+    analyzer.generate_dashboard(output)
+    logger.info(f"Dashboard ready: {output}")
+
+    # Also export insights JSON
+    insights = analyzer.insights
+    with open("output/insights.json", "w") as f:
+        json.dump(insights, f, indent=2, default=str)
+
+
+async def cmd_all(args):
+    """Run the complete pipeline."""
+    logger.info("╔══════════════════════════════════════╗")
+    logger.info("║  UAE Car Market — Full Pipeline      ║")
+    logger.info("╚══════════════════════════════════════╝")
+
+    # Step 1: Scrape
+    logger.info("\n📥 STEP 1/3: Scraping...")
+    await cmd_scrape(args)
+
+    # Step 2: Process
+    logger.info("\n🧠 STEP 2/3: Processing & Enrichment...")
+    args.excel = True
+    cmd_process(args)
+
+    # Step 3: Analyze & Dashboard
+    logger.info("\n📊 STEP 3/3: Analysis & Dashboard...")
+    cmd_analyze(args)
+
+    logger.info("\n✅ Pipeline complete! Check the 'output/' folder.")
+
+
+def cmd_serve(args):
+    """Start the web UI server."""
+    import uvicorn
+    from app.database import init_database
+
+    # Auto-init DB if needed
+    if not os.path.exists("data/cars.db"):
+        print("[*] Initializing database...")
         try:
-            output = "uae_cars_market_data.xlsx"
-            df.to_excel(output, index=False, sheet_name="Market Data")
-            print(f"✅ Exported to {output}")
-        except ImportError:
-            print("❌ openpyxl not installed. Run: pip install openpyxl")
-    elif fmt == "json":
-        output = "uae_cars_market_data_processed.json"
-        df.to_json(output, orient="records", indent=2)
-        print(f"✅ Exported to {output}")
-    else:
-        print(f"❌ Unknown format: {fmt}. Supported: xlsx, json")
+            count = init_database()
+            print(f"[OK] Loaded {count} listings into database")
+        except FileNotFoundError:
+            print("[!] No processed data found. Run 'python run.py process' first.")
+            return
 
+    print(f"\n[*] Starting UAE Car Market Search UI...")
+    print(f"    Open http://localhost:{args.port} in your browser\n")
 
-def cmd_all():
-    """Run the full pipeline."""
-    print("\n" + "=" * 60)
-    print("  STEP 1: Processing & Merging Data")
-    print("=" * 60)
-    cmd_process()
-    
-    print("\n" + "=" * 60)
-    print("  STEP 2: Generating Analytics Dashboard")
-    print("=" * 60)
-    cmd_analyze()
-    
-    print("\n" + "=" * 60)
-    print("  🎉 All done! Open dashboard.html in your browser.")
-    print("=" * 60)
+    uvicorn.run(
+        "app.main:app",
+        host=args.host,
+        port=args.port,
+        reload=args.reload,
+        log_level="info",
+    )
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description="UAE Car Market Scraper — CLI Tool",
+        description="🇦🇪 UAE Car Market Scraper & Intelligence Dashboard",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
-Commands:
-  process   Process raw JSON files into enriched CSV
-  analyze   Generate interactive HTML dashboard
-  all       Run process + analyze
-  export    Export to Excel/JSON (use --format xlsx or json)
-
 Examples:
-  python run.py all
-  python run.py process
-  python run.py analyze
-  python run.py export --format xlsx
+  python run.py scrape --source all --pages 30
+  python run.py scrape --source dubizzle --pages 50
+  python run.py process --excel
+  python run.py analyze --output my_dashboard.html
+  python run.py all --pages 25 --details
         """
     )
-    
-    parser.add_argument("command", choices=["process", "analyze", "all", "export"],
-                        help="Command to run")
-    parser.add_argument("--format", default="xlsx", choices=["xlsx", "json"],
-                        help="Export format (for 'export' command)")
-    
-    if len(sys.argv) == 1:
+
+    subparsers = parser.add_subparsers(dest="command", help="Command to run")
+
+    # Scrape command
+    scrape_parser = subparsers.add_parser("scrape", help="Scrape car listings")
+    scrape_parser.add_argument("--source", choices=["all", "dubizzle", "dubicars"], default="all")
+    scrape_parser.add_argument("--pages", type=int, default=30, help="Max pages to scrape per source")
+    scrape_parser.add_argument("--min-delay", type=float, default=2, help="Min delay between requests (s)")
+    scrape_parser.add_argument("--max-delay", type=float, default=5, help="Max delay between requests (s)")
+    scrape_parser.add_argument("--details", action="store_true", help="Scrape individual listing pages for richer data")
+
+    # Process command
+    process_parser = subparsers.add_parser("process", help="Process & merge raw data")
+    process_parser.add_argument("--excel", action="store_true", help="Also export to Excel")
+
+    # Analyze command
+    analyze_parser = subparsers.add_parser("analyze", help="Analyze data & generate dashboard")
+    analyze_parser.add_argument("--output", type=str, default="output/dashboard.html")
+
+    # Full pipeline
+    all_parser = subparsers.add_parser("all", help="Run complete pipeline (scrape → process → analyze)")
+    all_parser.add_argument("--source", choices=["all", "dubizzle", "dubicars"], default="all")
+    all_parser.add_argument("--pages", type=int, default=30)
+    all_parser.add_argument("--min-delay", type=float, default=2)
+    all_parser.add_argument("--max-delay", type=float, default=5)
+    all_parser.add_argument("--details", action="store_true")
+    all_parser.add_argument("--output", type=str, default="output/dashboard.html")
+
+    # Serve web UI
+    serve_parser = subparsers.add_parser("serve", help="Start the web search UI")
+    serve_parser.add_argument("--host", default="0.0.0.0", help="Host to bind")
+    serve_parser.add_argument("--port", type=int, default=8000, help="Port number")
+    serve_parser.add_argument("--reload", action="store_true", help="Auto-reload on changes")
+
+    args = parser.parse_args()
+
+    if not args.command:
         parser.print_help()
         return
-    
-    args = parser.parse_args()
-    
-    commands = {
-        "process": cmd_process,
-        "analyze": cmd_analyze,
-        "all": cmd_all,
-        "export": lambda: cmd_export(args.format),
-    }
-    
-    commands[args.command]()
+
+    if args.command == "scrape":
+        asyncio.run(cmd_scrape(args))
+    elif args.command == "process":
+        cmd_process(args)
+    elif args.command == "analyze":
+        cmd_analyze(args)
+    elif args.command == "all":
+        asyncio.run(cmd_all(args))
+    elif args.command == "serve":
+        cmd_serve(args)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,42 @@
+2026-04-28 11:24:04,810 [runner] INFO: === Starting Dubizzle Scraper ===
+2026-04-28 11:24:04,810 [scrapling] WARNING: This logic is deprecated now, and have no effect; It will be removed with v0.3. Use `StealthyFetcher.configure()` instead before fetching
+2026-04-28 11:24:04,811 [dubizzle_spider] INFO: Scraping page 1: https://dubizzle.com/motors/used-cars/?page=1
+2026-04-28 11:24:10,915 [scrapling] INFO: Fetched (200) <GET https://dubizzle.com/motors/used-cars/?page=1> (referer: https://www.google.com/search?q=dubizzle)
+2026-04-28 11:24:11,033 [dubizzle_spider] WARNING: No listing cards found with any selector strategy
+2026-04-28 11:24:11,033 [dubizzle_spider] INFO: Page 1: Found 0 listings
+2026-04-28 11:24:15,706 [dubizzle_spider] INFO: Scraping page 2: https://dubizzle.com/motors/used-cars/?page=2
+2026-04-28 11:24:18,437 [scrapling] INFO: Fetched (200) <GET https://dubizzle.com/motors/used-cars/?page=2> (referer: https://www.google.com/search?q=dubizzle)
+2026-04-28 11:24:18,554 [dubizzle_spider] WARNING: No listing cards found with any selector strategy
+2026-04-28 11:24:18,554 [dubizzle_spider] INFO: Page 2: Found 0 listings
+2026-04-28 11:24:23,402 [dubizzle_spider] INFO: Scraping page 3: https://dubizzle.com/motors/used-cars/?page=3
+2026-04-28 11:24:25,556 [scrapling] INFO: Fetched (200) <GET https://dubizzle.com/motors/used-cars/?page=3> (referer: https://www.google.com/search?q=dubizzle)
+2026-04-28 11:24:25,672 [dubizzle_spider] WARNING: No listing cards found with any selector strategy
+2026-04-28 11:24:25,672 [dubizzle_spider] INFO: Page 3: Found 0 listings
+2026-04-28 11:24:29,005 [dubizzle_spider] INFO: Scraping page 4: https://dubizzle.com/motors/used-cars/?page=4
+2026-04-28 11:24:31,132 [scrapling] INFO: Fetched (200) <GET https://dubizzle.com/motors/used-cars/?page=4> (referer: https://www.google.com/search?q=dubizzle)
+2026-04-28 11:24:31,254 [dubizzle_spider] WARNING: No listing cards found with any selector strategy
+2026-04-28 11:24:31,255 [dubizzle_spider] INFO: Page 4: Found 0 listings
+2026-04-28 11:24:31,255 [dubizzle_spider] INFO: No listings on page 4. Stopping.
+2026-04-28 11:24:31,255 [dubizzle_spider] INFO: Scraping complete. Stats: {'pages_scraped': 4, 'listings_found': 0, 'errors': 0}
+2026-04-28 11:24:31,255 [runner] INFO: Dubizzle: 0 listings saved
+2026-04-28 11:24:31,255 [runner] INFO: === Starting Dubicars Scraper ===
+2026-04-28 11:24:31,255 [scrapling] WARNING: This logic is deprecated now, and have no effect; It will be removed with v0.3. Use `StealthyFetcher.configure()` instead before fetching
+2026-04-28 11:24:32,117 [scrapling] INFO: Fetched (404) <GET https://www.dubicars.com/api/v1/listings?page=1&per_page=24&sort=newest> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 11:24:32,254 [dubicars_spider] INFO: DOM scraping page 1: https://www.dubicars.com/used-cars?page=1
+2026-04-28 11:24:35,568 [scrapling] INFO: Fetched (404) <GET https://www.dubicars.com/used-cars?page=1> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 11:24:35,696 [dubicars_spider] INFO: Page 1: 0 listings (total: 0)
+2026-04-28 11:24:41,516 [scrapling] INFO: Fetched (404) <GET https://www.dubicars.com/api/v1/listings?page=2&per_page=24&sort=newest> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 11:24:41,651 [dubicars_spider] INFO: DOM scraping page 2: https://www.dubicars.com/used-cars?page=2
+2026-04-28 11:24:44,369 [scrapling] INFO: Fetched (404) <GET https://www.dubicars.com/used-cars?page=2> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 11:24:44,491 [dubicars_spider] INFO: Page 2: 0 listings (total: 0)
+2026-04-28 11:24:47,743 [scrapling] INFO: Fetched (404) <GET https://www.dubicars.com/api/v1/listings?page=3&per_page=24&sort=newest> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 11:24:47,857 [dubicars_spider] INFO: DOM scraping page 3: https://www.dubicars.com/used-cars?page=3
+2026-04-28 11:24:51,180 [scrapling] INFO: Fetched (404) <GET https://www.dubicars.com/used-cars?page=3> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 11:24:51,293 [dubicars_spider] INFO: Page 3: 0 listings (total: 0)
+2026-04-28 11:24:55,720 [scrapling] INFO: Fetched (404) <GET https://www.dubicars.com/api/v1/listings?page=4&per_page=24&sort=newest> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 11:24:55,843 [dubicars_spider] INFO: DOM scraping page 4: https://www.dubicars.com/used-cars?page=4
+2026-04-28 11:24:58,595 [scrapling] INFO: Fetched (404) <GET https://www.dubicars.com/used-cars?page=4> (referer: https://www.google.com/search?q=dubicars)
+2026-04-28 11:24:58,726 [dubicars_spider] INFO: No more listings at page 4. Stopping.
+2026-04-28 11:24:58,726 [dubicars_spider] INFO: Dubicars scraping complete. Stats: {'pages_scraped': 3, 'listings_found': 0, 'details_scraped': 0, 'errors': 0}
+2026-04-28 11:24:58,726 [runner] INFO: Dubicars: 0 listings saved
+2026-04-28 11:24:58,727 [runner] INFO: === Scraping Complete: 0 total listings ===

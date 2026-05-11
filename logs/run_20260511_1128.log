@@ -1,0 +1,8 @@
+2026-05-11 11:28:16,510 [api] INFO: Database ready.
+2026-05-11 11:28:33,783 [runner] INFO: === Starting Dubizzle Scraper ===
+2026-05-11 11:28:34,269 [dubizzle_spider] INFO: Playwright browser launched
+2026-05-11 11:28:34,269 [dubizzle_spider] INFO: Scraping page 1: https://uae.dubizzle.com/motors/new-cars/?page=1
+2026-05-11 11:29:34,284 [dubizzle_spider] ERROR: Attempt 1 failed for https://uae.dubizzle.com/motors/new-cars/?page=1: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://uae.dubizzle.com/motors/new-cars/?page=1", waiting until "networkidle"
+

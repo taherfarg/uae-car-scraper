@@ -1,0 +1,72 @@
+2026-05-11 12:10:20,226 [processor] INFO: Starting enhanced processing pipeline...
+2026-05-11 12:10:20,243 [processor] INFO: Raw records: 9314
+2026-05-11 12:10:20,266 [processor] INFO: After basic cleaning: 9314 records
+2026-05-11 12:10:20,890 [processor] INFO: Brand extraction: 8575/9314 identified (92.1%)
+2026-05-11 12:10:21,280 [processor] INFO: Outlier removal: 9314 → 9285 (29 removed)
+2026-05-11 12:10:21,382 [processor] INFO: Deduplication: 9285 → 4958 (4327 duplicates)
+2026-05-11 12:10:22,169 [processor] INFO: Cross-source validation: 172 brand/model/year combos compared
+2026-05-11 12:10:22,171 [processor] INFO: Final clean records: 4958
+2026-05-11 12:10:22,177 [processor] INFO: Quality Report: {
+  "total_listings": 4958,
+  "source_breakdown": {
+    "dubicars": 4300,
+    "dubizzle": 658
+  },
+  "brand_coverage": {
+    "identified": 4537,
+    "unknown": 421,
+    "pct_identified": 91.5
+  },
+  "model_coverage": {
+    "identified": 4537,
+    "pct_identified": 91.5
+  },
+  "field_completeness": {
+    "price": 100.0,
+    "year": 99.9,
+    "mileage": 100.0,
+    "brand": 100.0,
+    "model": 100.0,
+    "body_type": 100.0,
+    "fuel_type": 100.0,
+    "location": 13.3,
+    "color": 13.3
+  },
+  "avg_quality_score": 81.0,
+  "price_stats": {
+    "min": 5000.0,
+    "max": 8200000.0,
+    "mean": 301155.09,
+    "median": 154999.0
+  },
+  "top_brands": {
+    "Toyota": 1402,
+    "Mercedes-Benz": 456,
+    "BYD": 298,
+    "Nissan": 246,
+    "Kia": 174,
+    "Mitsubishi": 159,
+    "Hyundai": 157,
+    "Suzuki": 151,
+    "Lexus": 149,
+    "BMW": 146,
+    "MG": 131,
+    "Land Rover": 121,
+    "Audi": 88,
+    "Rolls-Royce": 86,
+    "Jeep": 68
+  },
+  "cross_source_flags": {
+    "Normal": 3720,
+    "Above Market": 380,
+    "Below Market": 361,
+    "Overpriced \u26a0\ufe0f": 335,
+    "Potential Deal \ud83d\udd25": 162
+  },
+  "extraction_methods": {
+    "dom": 4300,
+    "next_data": 658
+  }
+}
+2026-05-11 12:10:22,210 [processor] INFO: Exported 4958 records to data/processed/listings.csv
+2026-05-11 12:10:22,401 [processor] INFO: JSON export complete: data/processed/listings.json

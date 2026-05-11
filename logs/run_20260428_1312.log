@@ -1,0 +1,5 @@
+2026-04-28 13:12:23,296 [processor] INFO: Starting enhanced processing pipeline...
+2026-04-28 13:12:23,298 [processor] INFO: Raw records: 750
+2026-04-28 13:12:23,306 [processor] INFO: After basic cleaning: 750 records
+2026-04-28 13:12:23,361 [processor] INFO: Brand extraction: 689/750 identified (91.9%)
+2026-04-28 13:12:23,534 [processor] INFO: Final clean records: 579

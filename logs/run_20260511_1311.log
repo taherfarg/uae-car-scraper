@@ -1,0 +1,53 @@
+2026-05-11 13:11:44,228 [runner] INFO: === Starting Dubizzle Scraper ===
+2026-05-11 13:11:44,599 [dubizzle_spider] INFO: Playwright browser launched
+2026-05-11 13:11:44,600 [dubizzle_spider] INFO: Scraping page 1: https://uae.dubizzle.com/motors/new-cars/?page=1
+2026-05-11 13:11:54,998 [dubizzle_spider] INFO: Page 1: Found 25 listings
+2026-05-11 13:11:59,916 [dubizzle_spider] INFO: Scraping page 2: https://uae.dubizzle.com/motors/new-cars/?page=2
+2026-05-11 13:12:11,609 [dubizzle_spider] INFO: Page 2: Found 25 listings
+2026-05-11 13:12:15,405 [dubizzle_spider] INFO: Scraping page 3: https://uae.dubizzle.com/motors/new-cars/?page=3
+2026-05-11 13:12:26,963 [dubizzle_spider] INFO: Page 3: Found 25 listings
+2026-05-11 13:12:30,724 [dubizzle_spider] INFO: Scraping page 4: https://uae.dubizzle.com/motors/new-cars/?page=4
+2026-05-11 13:12:43,483 [dubizzle_spider] INFO: Page 4: Found 25 listings
+2026-05-11 13:12:48,332 [dubizzle_spider] INFO: Scraping page 5: https://uae.dubizzle.com/motors/new-cars/?page=5
+2026-05-11 13:13:00,225 [dubizzle_spider] INFO: Page 5: Found 25 listings
+2026-05-11 13:13:04,154 [dubizzle_spider] INFO: Scraping page 6: https://uae.dubizzle.com/motors/new-cars/?page=6
+2026-05-11 13:13:15,786 [dubizzle_spider] INFO: Page 6: Found 25 listings
+2026-05-11 13:13:20,054 [dubizzle_spider] INFO: Scraping page 7: https://uae.dubizzle.com/motors/new-cars/?page=7
+2026-05-11 13:13:32,782 [dubizzle_spider] INFO: Page 7: Found 25 listings
+2026-05-11 13:13:36,440 [dubizzle_spider] INFO: Scraping page 8: https://uae.dubizzle.com/motors/new-cars/?page=8
+2026-05-11 13:13:48,945 [dubizzle_spider] INFO: Page 8: Found 25 listings
+2026-05-11 13:13:52,451 [dubizzle_spider] INFO: Scraping page 9: https://uae.dubizzle.com/motors/new-cars/?page=9
+2026-05-11 13:14:04,572 [dubizzle_spider] INFO: Page 9: Found 25 listings
+2026-05-11 13:14:08,476 [dubizzle_spider] INFO: Scraping page 10: https://uae.dubizzle.com/motors/new-cars/?page=10
+2026-05-11 13:14:20,658 [dubizzle_spider] INFO: Page 10: Found 25 listings
+2026-05-11 13:14:24,535 [dubizzle_spider] INFO: Scraping page 11: https://uae.dubizzle.com/motors/new-cars/?page=11
+2026-05-11 13:14:57,593 [dubizzle_spider] INFO: Page 11: Found 25 listings
+2026-05-11 13:15:00,004 [dubizzle_spider] INFO: Scraping page 12: https://uae.dubizzle.com/motors/new-cars/?page=12
+2026-05-11 13:15:11,801 [dubizzle_spider] INFO: Page 12: Found 25 listings
+2026-05-11 13:15:14,428 [dubizzle_spider] INFO: Scraping page 13: https://uae.dubizzle.com/motors/new-cars/?page=13
+2026-05-11 13:15:26,033 [dubizzle_spider] INFO: Page 13: Found 25 listings
+2026-05-11 13:15:31,000 [dubizzle_spider] INFO: Scraping page 14: https://uae.dubizzle.com/motors/new-cars/?page=14
+2026-05-11 13:16:04,154 [dubizzle_spider] INFO: Page 14: Found 25 listings
+2026-05-11 13:16:06,533 [dubizzle_spider] INFO: Scraping page 15: https://uae.dubizzle.com/motors/new-cars/?page=15
+2026-05-11 13:16:18,837 [dubizzle_spider] INFO: Page 15: Found 25 listings
+2026-05-11 13:16:21,975 [dubizzle_spider] INFO: Scraping page 16: https://uae.dubizzle.com/motors/new-cars/?page=16
+2026-05-11 13:16:33,715 [dubizzle_spider] INFO: Page 16: Found 25 listings
+2026-05-11 13:16:38,069 [dubizzle_spider] INFO: Scraping page 17: https://uae.dubizzle.com/motors/new-cars/?page=17
+2026-05-11 13:16:50,447 [dubizzle_spider] INFO: Page 17: Found 25 listings
+2026-05-11 13:16:52,885 [dubizzle_spider] INFO: Scraping page 18: https://uae.dubizzle.com/motors/new-cars/?page=18
+2026-05-11 13:17:05,560 [dubizzle_spider] INFO: Page 18: Found 25 listings
+2026-05-11 13:17:07,576 [dubizzle_spider] INFO: Scraping page 19: https://uae.dubizzle.com/motors/new-cars/?page=19
+2026-05-11 13:17:19,390 [dubizzle_spider] INFO: Page 19: Found 25 listings
+2026-05-11 13:17:22,316 [dubizzle_spider] INFO: Scraping page 20: https://uae.dubizzle.com/motors/new-cars/?page=20
+2026-05-11 13:17:33,848 [dubizzle_spider] INFO: Page 20: Found 25 listings
+2026-05-11 13:17:36,000 [dubizzle_spider] INFO: Scraping page 21: https://uae.dubizzle.com/motors/new-cars/?page=21
+2026-05-11 13:17:48,582 [dubizzle_spider] INFO: Page 21: Found 25 listings
+2026-05-11 13:17:51,885 [dubizzle_spider] INFO: Scraping page 22: https://uae.dubizzle.com/motors/new-cars/?page=22
+2026-05-11 13:18:03,453 [dubizzle_spider] INFO: Page 22: Found 25 listings
+2026-05-11 13:18:08,269 [dubizzle_spider] INFO: Scraping page 23: https://uae.dubizzle.com/motors/new-cars/?page=23
+2026-05-11 13:18:20,665 [dubizzle_spider] INFO: Page 23: Found 25 listings
+2026-05-11 13:18:25,235 [dubizzle_spider] INFO: Scraping page 24: https://uae.dubizzle.com/motors/new-cars/?page=24
+2026-05-11 13:18:36,586 [dubizzle_spider] INFO: Page 24: Found 25 listings
+2026-05-11 13:18:38,964 [dubizzle_spider] INFO: Scraping page 25: https://uae.dubizzle.com/motors/new-cars/?page=25
+2026-05-11 13:18:50,506 [dubizzle_spider] INFO: Page 25: Found 25 listings
+2026-05-11 13:18:53,828 [dubizzle_spider] INFO: Scraping page 26: https://uae.dubizzle.com/motors/new-cars/?page=26

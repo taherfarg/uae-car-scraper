@@ -1,0 +1,11 @@
+2026-05-11 11:34:10,685 [runner] INFO: === Starting Dubizzle Scraper ===
+2026-05-11 11:34:11,106 [dubizzle_spider] INFO: Playwright browser launched
+2026-05-11 11:34:11,107 [dubizzle_spider] INFO: Scraping page 1: https://uae.dubizzle.com/motors/new-cars/?page=1
+2026-05-11 11:34:21,464 [dubizzle_spider] INFO: Page 1: Found 25 listings
+2026-05-11 11:34:25,019 [dubizzle_spider] INFO: Scraping page 2: https://uae.dubizzle.com/motors/new-cars/?page=2
+2026-05-11 11:34:37,653 [dubizzle_spider] INFO: Page 2: Found 25 listings
+2026-05-11 11:34:42,193 [dubizzle_spider] INFO: Scraping page 3: https://uae.dubizzle.com/motors/new-cars/?page=3
+2026-05-11 11:34:54,377 [dubizzle_spider] INFO: Page 3: Found 25 listings
+2026-05-11 11:34:58,762 [dubizzle_spider] INFO: Scraping complete. Stats: {'pages_scraped': 3, 'listings_found': 75, 'errors': 0}
+2026-05-11 11:34:58,765 [runner] INFO: Dubizzle: 75 listings saved
+2026-05-11 11:34:58,765 [runner] INFO: === Scraping Complete: 75 total listings ===

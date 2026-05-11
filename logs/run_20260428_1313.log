@@ -1,0 +1,67 @@
+2026-04-28 13:13:08,539 [processor] INFO: Starting enhanced processing pipeline...
+2026-04-28 13:13:08,541 [processor] INFO: Raw records: 750
+2026-04-28 13:13:08,544 [processor] INFO: After basic cleaning: 750 records
+2026-04-28 13:13:08,595 [processor] INFO: Brand extraction: 689/750 identified (91.9%)
+2026-04-28 13:13:08,758 [processor] INFO: Final clean records: 579
+2026-04-28 13:13:08,761 [processor] INFO: Quality Report: {
+  "total_listings": 579,
+  "source_breakdown": {
+    "dubicars": 579
+  },
+  "brand_coverage": {
+    "identified": 526,
+    "unknown": 53,
+    "pct_identified": 90.8
+  },
+  "model_coverage": {
+    "identified": 526,
+    "pct_identified": 90.8
+  },
+  "field_completeness": {
+    "price": 100.0,
+    "year": 100.0,
+    "mileage": 100.0,
+    "brand": 100.0,
+    "model": 100.0,
+    "body_type": 100.0,
+    "fuel_type": 100.0,
+    "location": 0.0
+  },
+  "avg_quality_score": 80.0,
+  "price_stats": {
+    "min": 28500.0,
+    "max": 8000000.0,
+    "mean": 333908.61,
+    "median": 185000.0
+  },
+  "top_brands": {
+    "Toyota": 204,
+    "Mercedes-Benz": 50,
+    "Nissan": 30,
+    "BYD": 28,
+    "Mitsubishi": 20,
+    "Suzuki": 18,
+    "Land Rover": 16,
+    "Lexus": 16,
+    "BMW": 15,
+    "Rolls-Royce": 13,
+    "Kia": 11,
+    "Jeep": 9,
+    "MG": 9,
+    "Porsche": 8,
+    "Infiniti": 8
+  },
+  "cross_source_flags": {
+    "Normal": 483,
+    "Below Market": 36,
+    "Overpriced \u26a0\ufe0f": 27,
+    "Above Market": 23,
+    "Potential Deal \ud83d\udd25": 10
+  },
+  "extraction_methods": {
+    "dom": 579
+  }
+}
+2026-04-28 13:13:08,767 [processor] INFO: Exported 579 records to data/processed/listings.csv
+2026-04-28 13:13:08,785 [processor] INFO: JSON export complete: data/processed/listings.json
+2026-04-28 13:13:09,108 [processor] INFO: Excel export complete: output/uae_car_market.xlsx
